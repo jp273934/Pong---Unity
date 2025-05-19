@@ -29,7 +29,7 @@ public class Paddle : MonoBehaviour
 
         if(Input.GetKeyUp("up") || Input.GetKeyUp("down"))
         {
-            rb.linearVelocityY = rb.linearVelocityY;
+            rb.linearVelocityY = 0;
         }
     }
 }
