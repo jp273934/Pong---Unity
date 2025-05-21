@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    public int moveSpeed = 1;
+    public int moveSpeed = 500;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,12 +19,12 @@ public class Paddle : MonoBehaviour
         {
             Debug.Log("up was pressed");
 
-            rb.linearVelocityY += moveSpeed * Time.deltaTime;
+            rb.AddForce(Vector2.up * moveSpeed, ForceMode2D.Force);
         }
 
         if (Input.GetKeyDown("down"))
         {
-            rb.linearVelocityY -= moveSpeed * Time.deltaTime;
+            rb.AddForce(Vector2.down *  moveSpeed, ForceMode2D.Force);
         }
 
         if(Input.GetKeyUp("up") || Input.GetKeyUp("down"))
@@ -33,4 +33,4 @@ public class Paddle : MonoBehaviour
         }
     }
 }
- 
+  
