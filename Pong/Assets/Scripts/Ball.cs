@@ -38,11 +38,16 @@ public class Ball : MonoBehaviour
     {
         Debug.Log("entered" + collision.gameObject.tag);
 
-        if(collision.gameObject.name == "OutOfBounds")
-        {
-            var gameManagerObject = gameManager.GetComponent<GameManager>();
+        var gameManagerObject = gameManager.GetComponent<GameManager>();
 
+        if (collision.gameObject.name == "OutOfBounds")
+        {
             gameManagerObject.EnemyScored();
+        }
+
+        if(collision.gameObject.name == "EnemyOutOfBounds")
+        {
+            gameManagerObject.PlayerScored();
         }
     }
 

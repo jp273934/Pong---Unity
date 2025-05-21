@@ -19,12 +19,12 @@ public class Paddle : MonoBehaviour
         {
             Debug.Log("up was pressed");
 
-            rb.AddForce(Vector2.up * moveSpeed, ForceMode2D.Force);
+            rb.linearVelocity = Vector2.up * moveSpeed * Time.deltaTime;
         }
 
         if (Input.GetKeyDown("down"))
         {
-            rb.AddForce(Vector2.down *  moveSpeed, ForceMode2D.Force);
+            rb.linearVelocity = Vector2.down * moveSpeed * Time.deltaTime;
         }
 
         if(Input.GetKeyUp("up") || Input.GetKeyUp("down"))

@@ -30,4 +30,17 @@ public class GameManager : MonoBehaviour
        var ballObject = ball.GetComponent<Ball>();
         ballObject.RestartBall();
     }
+
+    public void PlayerScored()
+    {
+        Debug.Log("Player Scored !!!");
+        var ball = GameObject.Find("Ball");
+
+        PlayerScore++;
+
+        ball.transform.position = spawnPoint.position;
+
+        var ballObject = ball.GetComponent<Ball>();
+        ballObject.RestartBall();
+    }
 }
