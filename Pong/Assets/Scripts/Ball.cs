@@ -3,6 +3,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public int moveSpeed = 500;
+    public GameObject gameManager;
 
     private Rigidbody2D rb;
     private Vector2 direction;
@@ -21,10 +22,25 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //rb.linearVelocity = direction * moveSpeed * Time.deltaTime;
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("entered" + collision.gameObject.tag);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("entered" + collision.gameObject.tag);
+
+        if(collision.gameObject.name == "OutOfBounds")
+        {
+            var gameManagerObject = gameManager.GetComponent<GameManager>();
+
+            gameManagerObject.EnemyScored();
+        }
+    }
+
 }
 
 
