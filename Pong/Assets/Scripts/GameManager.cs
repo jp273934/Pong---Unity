@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public int PlayerScore;
     public int EnemyScore;
-
+    public Transform spawnPoint;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +23,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Enemy Scored !!!");
         var ball = GameObject.Find("Ball");
 
-        Destroy(ball);
         EnemyScore++;
+
+       ball.transform.position = spawnPoint.position;
+       
+       var ballObject = ball.GetComponent<Ball>();
+        ballObject.RestartBall();
     }
 }

@@ -24,6 +24,11 @@ public class Ball : MonoBehaviour
     {
     }
 
+    public void RestartBall()
+    {
+        rb.AddForce(Random.onUnitSphere * moveSpeed * Time.deltaTime, ForceMode2D.Force);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("entered" + collision.gameObject.tag);
